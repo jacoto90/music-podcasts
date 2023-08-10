@@ -1,0 +1,77 @@
+.podcast-list {
+    max-width: 1200px; /* Puedes ajustar este valor según prefieras */
+    margin: 0 auto; /* Centrar el contenedor en la página */
+    padding: 20px; /* Añadir algo de espacio alrededor */
+    .filter-section {
+      text-align: right;
+      padding: 10px;
+
+      input {
+        padding: 5px 10px;
+      }
+    }
+
+    .podcasts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .podcast-item {
+        width: 240px;
+        position: relative;  /* Para que podamos posicionar la imagen de manera absoluta */
+        flex: 0 0 calc(25% - 40px); // Aumentamos el margen un poco más para evitar la superposición
+        margin: 20px; // Aumentamos el margen
+        padding-top: 35px;  // Aumentamos el padding superior
+        background-color: white;  // Fondo blanco para la tarjeta
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1), // Sombreado en el lado inferior
+                    -2px 0px 8px rgba(0, 0, 0, 0.1), // Sombreado en el lado izquierdo
+                    2px 0px 8px rgba(0, 0, 0, 0.1);  // Sombreado en el lado derecho
+        border-radius: 10px; /* Para darle las esquinas redondeadas al "sobre" */
+        text-align: center; /* Para centrar el contenido verticalmente */
+
+        /* Aquí es donde hacemos que la imagen sobresalga del contenedor */
+        .podcast-image {
+          position: absolute;
+          top: -35px;  /* Hacer que la mitad de la imagen sobresalga */
+          left: 50%;   /* Centrar la imagen horizontalmente */
+          transform: translateX(-50%);  /* Parte del centrado horizontal */
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          overflow: hidden; /* Esto es para garantizar que la imagen se recorte bien en caso de que no sea cuadrada */
+          background-color: white; /* En caso de que la imagen no cubra todo el círculo */
+
+          img {
+            width: 100%;
+            display: block;
+          }
+        }
+
+        .podcast-details {
+            padding-top: 25px;
+          padding-bottom: 15px;
+          
+          .podcast-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+
+          .podcast-author {
+            font-size: 14px;
+            color: #666;
+          }
+        }
+
+        .description {
+          font-weight: bold;
+
+          .author {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+}

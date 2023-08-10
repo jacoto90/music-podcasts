@@ -1,23 +1,23 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+
+// Definición de la interfaz
+interface PodcastResponse {
+  feed: {
+    entry: any[];
+  };
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class PodcastService {
-
-  private BASE_URL = 'https://itunes.apple.com';
+  private baseURL = 'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json';
 
   constructor(private http: HttpClient) { }
 
-  getTopPodcasts(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.BASE_URL}/us/rss/toppodcasts/limit=100/genre=1310/json`);
+  getTopPodcasts(): Observable<PodcastResponse> {
+    return this.http.get<PodcastResponse>(this.baseURL);
   }
-
-  getPodcastDetails(id: number): Observable<any> {
-    return this.http.get<any>(`${this.BASE_URL}/lookup?id=${id}&media=podcast&entity=podcastEpisode&limit=20`);
-  }
-
-  // Puedes agregar más métodos según sea necesario
 }
