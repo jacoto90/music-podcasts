@@ -1,1 +1,34 @@
-<p>podcast-details works!</p>
+<div class="podcast-details">
+
+    <div class="left-section">
+        <img [src]="podcast?.image" alt="Podcast Image" />
+        <hr>
+        <h1>{{ podcast?.title }}</h1>
+        <h2>{{ podcast?.artistName }}</h2> <!-- Asumiendo que tienes un campo 'author' en tu objeto 'podcast' -->
+        <hr>
+        <p>{{ podcast?.description }}</p>
+    </div>
+    
+
+    <div class="right-sections">
+        <div class="title-section">
+            <h1>Episodes: {{ podcast?.episodes.length }}</h1>
+        </div>
+
+        <div class="episode-section">
+            <div class="episode-header">
+                <h3 class="episode-title">Title</h3>
+                <span class="episode-date">Date</span>
+                <span class="episode-duration">Duration</span>
+            </div>
+           
+            <ul class="episode-list">
+                <li *ngFor="let episode of podcast?.episodes; let i = index" [class.alternate-bg]="i % 2 === 1">
+                    <h3 class="episode-title">{{ episode.title }}</h3>
+                    <span class="episode-date">{{ episode.date }}</span>
+                    <span class="episode-duration">{{ episode.duration }}</span>
+                </li>
+                
+            </ul>
+        </div>
+        
