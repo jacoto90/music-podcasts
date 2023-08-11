@@ -1,1 +1,27 @@
-<p>episode-details works!</p>
+<div class="podcast-details">
+
+    <!-- Sección Izquierda: Información del Podcast -->
+    <div class="left-section">
+        <a [routerLink]="['/podcast', podcastId]" class="episode-link">
+            <img [src]="podcast?.image" alt="Podcast Image" />
+            <hr>
+            <h1>{{ podcast?.title }}</h1>
+            <h2>{{ podcast?.artistName }}</h2>
+        </a>
+        <hr>
+        <p>{{ podcast?.description }}</p>
+    </div>
+    
+    <!-- Sección Derecha: Información del Episodio -->
+    <div class="right-sections">
+        <div class="episode-content">
+            <h2>{{ episode?.title }}</h2>
+            <div [innerHTML]="episode?.description"></div>
+            <audio controls>
+                <source [src]="episode?.audioUrl" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
+    </div>
+
+</div>

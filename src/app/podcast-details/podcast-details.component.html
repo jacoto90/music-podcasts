@@ -24,11 +24,13 @@
            
             <ul class="episode-list">
                 <li *ngFor="let episode of podcast?.episodes; let i = index" [class.alternate-bg]="i % 2 === 1">
-                    <h3 class="episode-title">{{ episode.title }}</h3>
+                    <h3 class="episode-title">
+                        <a [routerLink]="['/podcast', podcastId, 'episode', episode.id]" class="episode-link">{{ episode.title }}</a>
+                    </h3>
                     <span class="episode-date">{{ episode.date }}</span>
                     <span class="episode-duration">{{ episode.duration }}</span>
                 </li>
-                
             </ul>
+            
         </div>
         

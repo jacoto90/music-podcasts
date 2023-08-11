@@ -136,3 +136,12 @@ body, html {
 *, *::before, *::after {
     box-sizing: border-box;
 }
+.episode-link {
+    text-decoration: none; // Eliminar subrayado
+    color: inherit; // Hacer que el color del enlace sea el mismo que el color del texto
+
+    &:hover, &:focus, &:active {
+        text-decoration: none; // Eliminar subrayado también al pasar el cursor y al hacer clic
+        color: inherit; // Mantener el mismo color de texto al pasar el cursor y al hacer clic
+    }
+}

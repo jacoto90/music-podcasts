@@ -8,7 +8,7 @@
         <!-- Usaremos solo la lista filteredPodcasts. No es necesario mantener dos listas en el HTML. -->
         <div *ngFor="let podcast of filteredPodcasts" class="podcast-item">
             <!-- Aquí se coloca el enlace que dirige a podcast-details. Se usa la directiva [routerLink] de Angular -->
-            <a [routerLink]="['/podcast', podcast.id.attributes['im:id']]">
+            <a [routerLink]="['/podcast', podcast.id.attributes['im:id']]" class="podcast-link">
                 <div class="podcast-image">
                     <img [src]="podcast['im:image'][0].label" alt="Podcast Logo" />
                 </div>

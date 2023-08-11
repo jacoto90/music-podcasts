@@ -74,4 +74,15 @@
         }
       }
     }
+    .podcast-link {
+        text-decoration: none; // Eliminar subrayado
+        color: inherit; // Hacer que el color del enlace sea el mismo que el color del texto
+        display: block; // Asegurarse de que el enlace ocupe todo el espacio de su contenedor
+    
+        &:hover, &:focus, &:active {
+            text-decoration: none; // Eliminar subrayado también al pasar el cursor y al hacer clic
+            color: inherit; // Mantener el mismo color de texto al pasar el cursor y al hacer clic
+        }
+    }
+    
 }
